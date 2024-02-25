@@ -1,6 +1,7 @@
 package com.example.freshnessdetection;
 
 import android.os.Bundle;
+import androidx.core.splashscreen.SplashScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -15,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+
+
     super.onCreate(savedInstanceState);
+
+
 
     binding = ActivityMainBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
