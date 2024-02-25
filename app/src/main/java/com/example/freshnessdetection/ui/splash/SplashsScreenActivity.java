@@ -1,12 +1,15 @@
 package com.example.freshnessdetection.ui.splash;
 
 import android.content.Intent;
+import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.core.splashscreen.SplashScreen;
 import com.example.freshnessdetection.MainActivity;
+import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.databinding.ActivityMainBinding;
 import com.example.freshnessdetection.databinding.ActivitySplashScreenBinding;
+import com.example.freshnessdetection.util.Typewriter;
 
 public class SplashsScreenActivity extends AppCompatActivity {
 
@@ -17,8 +20,11 @@ public class SplashsScreenActivity extends AppCompatActivity {
     com.example.freshnessdetection.databinding.ActivitySplashScreenBinding binding =
         ActivitySplashScreenBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
+    new Handler().postDelayed(() -> {
+    }, 4500);
 
-    //startActivity(new Intent(this, MainActivity.class));
-    //finish();
+    Typewriter writer = findViewById(R.id.typewriter);
+    writer.setCharacterDelay(250);
+    writer.animateText(getResources().getString(R.string.app_name));
   }
 }
