@@ -21,6 +21,7 @@ public class SplashsScreenActivity extends AppCompatActivity {
         ActivitySplashScreenBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
     new Handler().postDelayed(() -> {
+      startActivity(new Intent(this,MainActivity.class));
     }, 4500);
 
     Typewriter writer = findViewById(R.id.typewriter);
