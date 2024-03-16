@@ -1,7 +1,8 @@
 <resources>
   <string name="app_name">Freshness Detection</string>
-  <string name="title_home">Home</string>
+  <string name="title_home">Identification</string>
   <string name="title_dashboard">Recent Searches</string>
   <string name="title_notifications">Settings</string>
   <string name="instraction">Instraction</string>
+  <string name="about_us">About Us</string>
 </resources>
