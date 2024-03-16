@@ -7,6 +7,6 @@
 
     <include layout="@layout/instraction_item" />
 
-    <include layout="@layout/instraction_item" />
+    <include layout="@layout/about_us" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
