@@ -11,6 +11,7 @@
         android:id="@+id/touchtoIdentify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_bold"
         android:text="Touch to identify"
         android:textAlignment="center"
         android:textColor="@color/black"
