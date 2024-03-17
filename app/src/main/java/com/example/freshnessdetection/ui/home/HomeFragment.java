@@ -8,13 +8,10 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.freshnessdetection.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -31,7 +28,6 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         binding.galleryImg.setOnClickListener(view -> {
 
-            Toast.makeText(requireActivity(), "Gallery Clicked", Toast.LENGTH_SHORT).show();
             try {
                 if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);

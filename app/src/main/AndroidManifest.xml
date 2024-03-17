@@ -20,7 +20,7 @@
         android:theme="@style/Theme.FreshnessDetection"
         tools:targetApi="31">
         <activity
-            android:name=".ui.splash.SplashsScreenActivity"
+            android:name=".ui.splash.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="fullUser"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
