@@ -2,37 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-  <application
-      android:allowBackup="true"
-      android:dataExtractionRules="@xml/data_extraction_rules"
-      android:fullBackupContent="@xml/backup_rules"
-      android:icon="@drawable/logo"
-      android:label="@string/app_name"
-      android:roundIcon="@drawable/logo"
-      android:supportsRtl="true"
-      android:theme="@style/Theme.FreshnessDetection"
-      tools:targetApi="31">
-    <activity
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-        android:screenOrientation="fullUser"
-        android:name=".ui.splash.SplashsScreenActivity"
-        android:exported="true">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    </activity>
-    <activity
-        android:name=".MainActivity"
-        android:exported="true">
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FreshnessDetection"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.splash.SplashsScreenActivity"
+            android:exported="true"
+            android:screenOrientation="fullUser"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-    <meta-data
-        android:name="preloaded_fonts"
-        android:resource="@array/preloaded_fonts" />
-  </application>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
 
 </manifest>
