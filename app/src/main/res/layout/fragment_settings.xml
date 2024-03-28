@@ -7,6 +7,8 @@
 
     <include layout="@layout/instraction_item" />
 
-    <include layout="@layout/item_about_us" />
+    <include
+        android:id="@+id/aboutUs"
+        layout="@layout/item_about_us" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
