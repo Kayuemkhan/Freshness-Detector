@@ -5,30 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:padding="10dp"
-        android:text="FRESHNESS DETECTION"
-        android:textAlignment="center"
-        android:textStyle="bold" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
+      android:orientation="vertical"
+      >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,68 +22,135 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         />
 
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        />
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical"
-        android:paddingBottom="5dp">
-
-      <TextView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        >
+      <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="sans-serif-condensed"
-          android:paddingLeft="10dp"
-          android:text="1. Pasha "
-          android:textAlignment="textStart"
-          android:textStyle="bold" />
+          android:layout_height="100dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginVertical="50dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/profile_image1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/a"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           app:layout_constraintLeft_toRightOf="@+id/profile_image1"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           >
+         <TextView
+             android:id="@+id/nameOne"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintLeft_toRightOf="@+id/profile_image"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             android:layout_marginLeft="20dp"
+             android:layout_marginTop="0dp"
+             android:layout_marginBottom="0dp"
+             android:text="Nuruzzaman Pasha"
+             android:textStyle="bold"
+             style="@style/TextAppearance.AppCompat.Medium"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintLeft_toRightOf="@+id/profile_image"
+             app:layout_constraintTop_toBottomOf="@+id/nameOne"
+             app:layout_constraintBottom_toBottomOf="parent"
+             android:layout_marginLeft="20dp"
+             android:text="email: pasha@diu.edu.bd" />
 
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:fontFamily="sans-serif-condensed"
-          android:paddingLeft="10dp"
-          android:text="Email :  pasha@diu.edu.bd"
-          android:textAlignment="textStart"
-          android:layout_marginBottom="10dp"
-          />
 
-    </LinearLayout>
+       </LinearLayout>
 
-    <LinearLayout
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="11dp"
-        android:orientation="vertical"
-        android:paddingBottom="5dp">
-
-      <TextView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        >
+      <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="sans-serif-condensed"
-          android:paddingLeft="10dp"
-          android:text="2. Tahsin Tisun"
-          android:textAlignment="textStart"
-          android:textStyle="bold" />
+          android:layout_height="100dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginVertical="50dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/a"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           app:layout_constraintLeft_toRightOf="@+id/profile_image"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintLeft_toRightOf="@+id/profile_image"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             android:layout_marginLeft="20dp"
+             android:layout_marginTop="0dp"
+             android:layout_marginBottom="0dp"
+             android:text="Tashsin Tishun"
+             android:textStyle="bold"
+             style="@style/TextAppearance.AppCompat.Medium"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintLeft_toRightOf="@+id/profile_image"
+             app:layout_constraintTop_toBottomOf="@+id/nameOne"
+             app:layout_constraintBottom_toBottomOf="parent"
+             android:layout_marginLeft="20dp"
+             android:text="email: pasha@diu.edu.bd" />
 
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:fontFamily="sans-serif-condensed"
-          android:paddingLeft="10dp"
-          android:text="Email : tahsin@diu.edu.bd"
-          android:textAlignment="textStart"
-          android:layout_marginBottom="10dp"
-          />
 
-    </LinearLayout>
+       </LinearLayout>
 
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
   </LinearLayout>

@@ -10,5 +10,6 @@
   <color name="white">#FFFFFFFF</color>
 
   <color name="orange">#F05E2B</color>
+  <color name="orange_deem">#A8F05E2B</color>
 
 </resources>
