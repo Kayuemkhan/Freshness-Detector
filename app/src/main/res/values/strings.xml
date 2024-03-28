@@ -1,11 +1,11 @@
 <resources>
-  <string name="app_name">Freshness Detection</string>
-  <string name="title_home">Identification</string>
-  <string name="title_dashboard">Recent Searches</string>
-  <string name="title_notifications">Settings</string>
-  <string name="instraction">Instraction</string>
-  <string name="about_us">About Us</string>
-  <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Freshness Detection</string>
+    <string name="title_home">Identification</string>
+    <string name="title_dashboard">Recent Searches</string>
+    <string name="title_notifications">Settings</string>
+    <string name="instraction">Instraction</string>
+    <string name="about_us">About Us</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="team_information">TEAM INFORMATION</string>
 </resources>
