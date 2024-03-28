@@ -53,7 +53,6 @@ public class ExampleTimeLineAdapter extends RecyclerView.Adapter<ExampleTimeLine
         holder.timeline.setLineStyle(TimelineView.LineStyle.DASHED);
         holder.timeline.setStartLineColor(R.color.orange,1);
 
-        holder.text_timeline_date.setText(timeLineModel.getDate());
         holder.text_timeline_title.setText(timeLineModel.getMessage());
     }
 
@@ -75,7 +74,6 @@ public class ExampleTimeLineAdapter extends RecyclerView.Adapter<ExampleTimeLine
         TimeLineViewHolder(View itemView) {
             super(itemView);
             timeline = itemView.findViewById(R.id.timeline);
-            text_timeline_date = itemView.findViewById(R.id.text_timeline_date);
             text_timeline_title = itemView.findViewById(R.id.text_timeline_title);
         }
     }

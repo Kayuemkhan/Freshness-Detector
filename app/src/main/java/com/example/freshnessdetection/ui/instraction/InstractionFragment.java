@@ -39,9 +39,11 @@ public class InstractionFragment extends Fragment {
         return view;
     }
     private void setDataListItems() {
-        mDataList.add(new TimeLineModel("Item successfully delivered", "", "INACTIVE"));
-        mDataList.add(new TimeLineModel("Courier is out to delivery your order", "2017-02-12 08:00", "ACTIVE"));
-        mDataList.add(new TimeLineModel("Order placed successfully", "2017-02-10 14:00", "COMPLETED"));
+        mDataList.add(new TimeLineModel("Open Camera / Select photo from Gallery", "", "INACTIVE"));
+        mDataList.add(new TimeLineModel("Send it for Review", "2017-02-12 08:00", "ACTIVE"));
+        mDataList.add(new TimeLineModel("Check Result", "2017-02-10 14:00", "COMPLETED"));
+        mDataList.add(new TimeLineModel("Saved this for in Recent Searches", "2017-02-10 14:00", "COMPLETED"));
+        mDataList.add(new TimeLineModel("Also Can check in later", "2017-02-10 14:00", "COMPLETED"));
     }
 
     private void initRecyclerView() {
