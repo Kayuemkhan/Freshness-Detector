@@ -8,6 +8,8 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -15,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.freshnessdetection.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
-
+    static  int CAMERA_REQUEST_CODE =  1001;
     private FragmentHomeBinding binding;
     private static final int PICK_FROM_GALLERY = 1;
 
@@ -37,6 +39,19 @@ public class HomeFragment extends Fragment {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        });
+
+        binding.cameraImg.setOnClickListener(view -> {
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            // Check if there is a camera app available to handle the intent
+            if (cameraIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
+                // Start the camera activity
+                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
+            } else {
+                // Handle the case where there is no camera app available
+                Toast.makeText(requireActivity(), "No camera app available", Toast.LENGTH_SHORT).show();
             }
         });
 
