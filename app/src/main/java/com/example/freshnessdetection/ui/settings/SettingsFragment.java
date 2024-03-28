@@ -24,13 +24,12 @@ public class SettingsFragment extends Fragment {
     binding = FragmentSettingsBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-    binding.aboutUs.getRoot().setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View view) {
-        NavHostFragment.findNavController(SettingsFragment.this)
-            .navigate(R.id.navigation_about);
-      }
+    binding.aboutUs.getRoot().setOnClickListener(view -> NavHostFragment.findNavController(SettingsFragment.this)
+        .navigate(R.id.navigation_about));
+    binding.instraction.getRoot().setOnClickListener(view -> NavHostFragment.findNavController(SettingsFragment.this)
+        .navigate(R.id.navigation_instraction));
 
-    });
+
     return root;
   }
 

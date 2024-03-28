@@ -43,13 +43,15 @@ public class ExampleTimeLineAdapter extends RecyclerView.Adapter<ExampleTimeLine
     public void onBindViewHolder(@NonNull TimeLineViewHolder holder, int position) {
         TimeLineModel timeLineModel = mFeedList.get(position);
 
-        if ("INACTIVE".equals(timeLineModel.getStatus())) {
-            setMarker(holder, R.drawable.ic_marker_inactive, R.color.grey);
-        } else if ("ACTIVE".equals(timeLineModel.getStatus())) {
-            setMarker(holder, R.drawable.ic_marker_active, R.color.grey);
-        } else {
-            setMarker(holder, R.drawable.ic_marker, R.color.grey);
-        }
+//        if ("INACTIVE".equals(timeLineModel.getStatus())) {
+//            setMarker(holder, R.drawable.ic_marker_inactive, R.color.grey);
+//        } else if ("ACTIVE".equals(timeLineModel.getStatus())) {
+//            setMarker(holder, R.drawable.ic_marker_active, R.color.grey);
+//        } else {
+//            setMarker(holder, R.drawable.ic_marker, R.color.grey);
+//        }
+        holder.timeline.setLineStyle(TimelineView.LineStyle.DASHED);
+        holder.timeline.setStartLineColor(R.color.orange,1);
 
         holder.text_timeline_date.setText(timeLineModel.getDate());
         holder.text_timeline_title.setText(timeLineModel.getMessage());
@@ -57,7 +59,7 @@ public class ExampleTimeLineAdapter extends RecyclerView.Adapter<ExampleTimeLine
 
     private void setMarker(TimeLineViewHolder holder, int drawableResId, int colorResId) {
         Context context = holder.itemView.getContext();
-        holder.timeline.setMarker(VectorDrawableUtils.getDrawable(context, drawableResId, ContextCompat.getColor(context, colorResId)));
+//        holder.timeline.setMarker(VectorDrawableUtils.getDrawable(context, drawableResId, ContextCompat.getColor(context, colorResId)));
     }
 
     @Override

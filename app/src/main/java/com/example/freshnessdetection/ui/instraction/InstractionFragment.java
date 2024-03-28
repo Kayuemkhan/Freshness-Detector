@@ -26,8 +26,6 @@ public class InstractionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setDataListItems();
-        initRecyclerView();
     }
 
     @Override
@@ -35,6 +33,9 @@ public class InstractionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_instraction, container, false);
         recyclerView = view.findViewById(R.id.recyclerViews);
+        initRecyclerView();
+        setDataListItems();
+
         return view;
     }
     private void setDataListItems() {
@@ -45,7 +46,7 @@ public class InstractionFragment extends Fragment {
 
     private void initRecyclerView() {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         ExampleTimeLineAdapter exampleTimeLineAdapter = new ExampleTimeLineAdapter(mDataList);
         recyclerView.setAdapter(exampleTimeLineAdapter);
     }
