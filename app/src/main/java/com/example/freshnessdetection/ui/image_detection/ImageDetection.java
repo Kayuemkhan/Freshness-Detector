@@ -89,18 +89,21 @@ public class ImageDetection extends AppCompatActivity {
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
             float maxConfidence = 0;
+            String name = "";
+            String[] classes = {"fresh_apple", "fresh_banana", "fresh_bitter_gourd",
+                "fresh_capsicum", "fresh_orange", "fresh_tomato"};
             for(int i = 0; i < confidences.length; i++){
                 if(confidences[i] > maxConfidence){
                     maxConfidence = confidences[i];
                     maxPos = i;
+                    name = classes[maxPos];
                 }
             }
-            String[] classes = {"fresh_apple", "fresh_banana", "fresh_bitter_gourd",
-                    "fresh_capsicum", "fresh_orange", "fresh_tomato"};
+
             System.out.println("maxPOs");
             System.out.println(maxConfidence);
             if(maxConfidence*100 >80.0){
-                result.setText(classes[maxPos]);
+                result.setText(name);
             }
 
             String s = "";
