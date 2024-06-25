@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.freshnessdetection.databinding.FragmentHomeBinding;
+import com.example.freshnessdetection.ui.image_detection.ImageDetection;
 
 public class HomeFragment extends Fragment {
     static  int CAMERA_REQUEST_CODE =  1001;
@@ -43,16 +44,8 @@ public class HomeFragment extends Fragment {
         });
 
         binding.cameraImg.setOnClickListener(view -> {
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-            // Check if there is a camera app available to handle the intent
-            if (cameraIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
-                // Start the camera activity
-                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
-            } else {
-                // Handle the case where there is no camera app available
-                Toast.makeText(requireActivity(), "No camera app available", Toast.LENGTH_SHORT).show();
-            }
+           Intent intent = new Intent(requireActivity(), ImageDetection.class);
+           startActivity(intent);
         });
 
         return root;
