@@ -7,23 +7,19 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.ml.Model;
-
+import java.util.Objects;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -35,9 +31,13 @@ public class ImageDetection extends AppCompatActivity {
     int imageSize = 224;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_image_detection);
+        Objects.requireNonNull(getSupportActionBar())
+            .setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
 
         result = findViewById(R.id.result);
         confidence = findViewById(R.id.confidence);
@@ -90,8 +90,12 @@ public class ImageDetection extends AppCompatActivity {
             int maxPos = 0;
             float maxConfidence = 0;
             String name = "";
-            String[] classes = {"fresh_apple", "fresh_banana", "fresh_bitter_gourd",
-                "fresh_capsicum", "fresh_orange", "fresh_tomato"};
+            String[] classes = {"Fresh Apple", "Fresh Banana", "Fresh Bitter Guard",
+                "Fresh Capsicum", "Fresh Orange", "Fresh Tomato","Stale Apple ",
+                    "Stale Banana","Stale Bitter Gourd",
+            "Stale Capsicums","Stale Orange","Stale Tomato"
+
+            };
             for(int i = 0; i < confidences.length; i++){
                 if(confidences[i] > maxConfidence){
                     maxConfidence = confidences[i];
@@ -105,12 +109,12 @@ public class ImageDetection extends AppCompatActivity {
             if(maxConfidence*100 >80.0){
                 result.setText(name);
             }
+            confidence.setText(String.format(" %.1f%%",maxConfidence*100));
 
             String s = "";
             for(int i = 0; i < classes.length; i++){
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
-            confidence.setText(s);
 
 
             // Releases model resources if no longer used.
