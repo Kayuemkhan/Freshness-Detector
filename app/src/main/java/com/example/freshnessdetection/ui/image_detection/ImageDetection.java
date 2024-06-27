@@ -90,10 +90,10 @@ public class ImageDetection extends AppCompatActivity {
             int maxPos = 0;
             float maxConfidence = 0;
             String name = "";
-            String[] classes = {"fresh_apple", "fresh_banana", "fresh_bitter_gourd",
-                "fresh_capsicum", "fresh_orange", "fresh_tomato","stale_apple",
-                    "stale_banana","stale_bitter_gourd",
-            "stale_capsicum","stale_orange","stale_tomato"
+            String[] classes = {"Fresh Apple", "Fresh Banana", "Fresh Bitter Guard",
+                "Fresh Capsicum", "Fresh Orange", "Fresh Tomato","Stale Apple ",
+                    "Stale Banana","Stale Bitter Gourd",
+            "Stale Capsicums","Stale Orange","Stale Tomato"
 
             };
             for(int i = 0; i < confidences.length; i++){

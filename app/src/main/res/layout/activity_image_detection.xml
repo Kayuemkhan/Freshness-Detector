@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/confidencesText"
-        android:text="Confidences:"
+        android:text="Confidence table:"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
