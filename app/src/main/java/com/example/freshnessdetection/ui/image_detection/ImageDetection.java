@@ -7,23 +7,19 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.ml.Model;
-
+import java.util.Objects;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -35,9 +31,13 @@ public class ImageDetection extends AppCompatActivity {
     int imageSize = 224;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_image_detection);
+        Objects.requireNonNull(getSupportActionBar())
+            .setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
 
         result = findViewById(R.id.result);
         confidence = findViewById(R.id.confidence);
@@ -109,12 +109,12 @@ public class ImageDetection extends AppCompatActivity {
             if(maxConfidence*100 >80.0){
                 result.setText(name);
             }
+            confidence.setText(String.format(" %.1f%%",maxConfidence*100));
 
             String s = "";
             for(int i = 0; i < classes.length; i++){
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
-            confidence.setText(s);
 
 
             // Releases model resources if no longer used.
