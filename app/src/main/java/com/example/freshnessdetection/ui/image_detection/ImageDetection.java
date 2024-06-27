@@ -91,7 +91,11 @@ public class ImageDetection extends AppCompatActivity {
             float maxConfidence = 0;
             String name = "";
             String[] classes = {"fresh_apple", "fresh_banana", "fresh_bitter_gourd",
-                "fresh_capsicum", "fresh_orange", "fresh_tomato"};
+                "fresh_capsicum", "fresh_orange", "fresh_tomato","stale_apple",
+                    "stale_banana","stale_bitter_gourd",
+            "stale_capsicum","stale_orange","stale_tomato"
+
+            };
             for(int i = 0; i < confidences.length; i++){
                 if(confidences[i] > maxConfidence){
                     maxConfidence = confidences[i];
