@@ -27,6 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         }, 6000);
 
+        // কিভাবে আমরা টেক্সটকে অ্যানিমেশন করতেসি
         Typewriter writer = findViewById(R.id.typewriter);
         writer.setCharacterDelay(200);
         writer.animateText(getResources().getString(R.string.app_name));

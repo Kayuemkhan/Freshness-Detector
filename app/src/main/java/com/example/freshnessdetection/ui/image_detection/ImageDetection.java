@@ -57,37 +57,60 @@ public class ImageDetection extends AppCompatActivity {
     }
     public void classifyImage(Bitmap image){
         try {
+            // This line initializes the TensorFlow Lite model.
+
             Model model = Model.newInstance(getApplicationContext());
 
+            //Creates a TensorBuffer for the model input with fixed size [1, 224, 224, 3] and data type FLOAT32.
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+            //
+            // Allocates a direct ByteBuffer to hold the image data. The buffer size is 4 * imageSize * imageSize * 3 where 4 is the size of a float in bytes, and 3 is for RGB channels.
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
+
+            //Sets the byte order to the native order of the device.
+
             byteBuffer.order(ByteOrder.nativeOrder());
 
             // get 1D array of 224 * 224 pixels in image
+
+            // Creates an array to store the pixel values of the image.
             int [] intValues = new int[imageSize * imageSize];
+
+            // Extracts the pixel values from the Bitmap image into the intValues array.
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
 
             // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
+            // Initializes a pixel index counter.
             int pixel = 0;
             for(int i = 0; i < imageSize; i++){
                 for(int j = 0; j < imageSize; j++){
+                    // Gets the RGB value of the current pixel.
                     int val = intValues[pixel++]; // RGB
+
+                    // Extracts and normalizes the R, G, and B values from the pixel and adds them to the byteBuffer.
                     byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255.f));
                     byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255.f));
                     byteBuffer.putFloat((val & 0xFF) * (1.f / 255.f));
                 }
             }
 
+            //  Loads the byte buffer into the TensorBuffer.
             inputFeature0.loadBuffer(byteBuffer);
 
+            // Runs the model inference with the input buffer.
             // Runs model inference and gets result.
             Model.Outputs outputs = model.process(inputFeature0);
+
+            // Retrieves the output from the model.
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+
+            // Converts the output tensor to a float array containing confidence scores for each class.
 
             float[] confidences = outputFeature0.getFloatArray();
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
+//            Initializes variables to track the class with the highest confidence score.
             float maxConfidence = 0;
             String name = "";
             String[] classes = {"Fresh Apple", "Fresh Banana", "Fresh Bitter Guard",
