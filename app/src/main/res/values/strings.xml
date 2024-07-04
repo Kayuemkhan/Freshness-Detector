@@ -11,4 +11,5 @@
   <string name="classified_as">Classified as:</string>
   <string name="take_picture">Take Picture</string>
   <string name="confidence_table">Confidence table:</string>
+  <string name="from_gallery">From Gallery</string>
 </resources>

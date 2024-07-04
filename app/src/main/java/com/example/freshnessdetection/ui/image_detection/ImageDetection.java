@@ -5,16 +5,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.ml.Model;
 import java.util.Objects;
@@ -27,8 +28,10 @@ import java.nio.ByteOrder;
 public class ImageDetection extends AppCompatActivity {
     TextView result, confidence;
     ImageView imageView;
-    Button picture;
+    Button picture,from_gallery;
     int imageSize = 224;
+    private static final int PICK_FROM_GALLERY = 101;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,6 +46,7 @@ public class ImageDetection extends AppCompatActivity {
         confidence = findViewById(R.id.confidence);
         imageView = findViewById(R.id.imageView);
         picture = findViewById(R.id.button);
+        from_gallery = findViewById(R.id.galleryButton);
 
         picture.setOnClickListener(view -> {
             // Launch camera if we have permission
@@ -52,6 +56,15 @@ public class ImageDetection extends AppCompatActivity {
             } else {
                 //Request camera permission if we don't have it.
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+            }
+        });
+        from_gallery.setOnClickListener(view -> {
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+            } else {
+                // Request read external storage permission if we don't have it.
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
             }
         });
     }
@@ -150,6 +163,7 @@ public class ImageDetection extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Toast.makeText(this,"HEre",Toast.LENGTH_LONG).show();
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Bitmap image = (Bitmap) data.getExtras().get("data");
             int dimension = Math.min(image.getWidth(), image.getHeight());
@@ -158,6 +172,21 @@ public class ImageDetection extends AppCompatActivity {
 
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
             classifyImage(image);
+        }
+
+        else if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
+            Uri selectedImageUri = data.getData();
+            try {
+                Bitmap image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                int dimension = Math.min(image.getWidth(), image.getHeight());
+                image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
+                imageView.setImageBitmap(image);
+
+                image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
+                classifyImage(image);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
