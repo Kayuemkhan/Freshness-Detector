@@ -71,10 +71,10 @@
              app:layout_constraintLeft_toRightOf="@+id/profile_image"
              app:layout_constraintBottom_toBottomOf="parent"
              app:layout_constraintTop_toTopOf="parent"
-             android:layout_marginLeft="20dp"
+             android:layout_marginStart="20dp"
              android:layout_marginTop="0dp"
              android:layout_marginBottom="0dp"
-             android:text="Nuruzzaman Pasha"
+             android:text="Md. Nuruzzman Pasha"
              android:textStyle="bold"
              style="@style/TextAppearance.AppCompat.Medium"
              />
@@ -85,7 +85,7 @@
              app:layout_constraintTop_toBottomOf="@+id/nameOne"
              app:layout_constraintBottom_toBottomOf="parent"
              android:layout_marginLeft="20dp"
-             android:text="email: pasha@diu.edu.bd" />
+             android:text="@string/email_nuruzzaman15_14546_diu_edu_bd" />
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
              app:layout_constraintTop_toBottomOf="@+id/nameOne"
              app:layout_constraintBottom_toBottomOf="parent"
              android:layout_marginLeft="20dp"
-             android:text="ID: 163-15-9087"
+             android:text="ID: 203-15-14546"
              />
 
 
@@ -154,7 +154,7 @@
              app:layout_constraintTop_toBottomOf="@+id/nameOne"
              app:layout_constraintBottom_toBottomOf="parent"
              android:layout_marginLeft="20dp"
-             android:text="email: tishun15-14569@diu.edu.bd"
+             android:text="Email: tishun15-14569@diu.edu.bd"
              />
          <TextView
              android:layout_width="wrap_content"

@@ -10,5 +10,6 @@
     <string name="team_information">TEAM INFORMATION</string>
   <string name="classified_as">Classified as:</string>
   <string name="take_picture">Take Picture</string>
-  <string name="confidence_table">Confidence table:</string>
+  <string name="confidence_table">Confidence:</string>
+    <string name="email_nuruzzaman15_14546_diu_edu_bd"><strong>Email:</strong> nuruzzaman15-14546@diu.edu.bd</string>
 </resources>
