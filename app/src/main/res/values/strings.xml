@@ -10,6 +10,13 @@
     <string name="team_information">TEAM INFORMATION</string>
   <string name="classified_as">Classified as:</string>
   <string name="take_picture">Take Picture</string>
+<<<<<<< HEAD
   <string name="confidence_table">Confidence:</string>
     <string name="email_nuruzzaman15_14546_diu_edu_bd"><strong>Email:</strong> nuruzzaman15-14546@diu.edu.bd</string>
+=======
+  <string name="confidence_table">Confidence table:</string>
+  <string name="from_gallery">From Gallery</string>
+    <string name="email_tishun15_14569_diu_edu_bd">Email: tishun15-14569@diu.edu.bd</string>
+    <string name="id_203_15_14569">ID: 203-15-14569</string>
+    >>>>>>> 203ee8f59f6c3fad31f24afee15fe5fc0db14b2f
 </resources>
