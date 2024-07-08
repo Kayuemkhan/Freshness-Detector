@@ -9,7 +9,7 @@
     >
 
     <Button
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textColor="@color/white"
@@ -20,6 +20,24 @@
         android:id="@+id/button"
         android:text="@string/take_picture"
         android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        />
+    <Button
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/white"
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/galleryButton"
+        android:text="@string/from_gallery"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
