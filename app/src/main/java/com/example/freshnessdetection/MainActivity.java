@@ -1,6 +1,7 @@
 package com.example.freshnessdetection;
 
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;

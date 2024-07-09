@@ -6,12 +6,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,12 +61,20 @@ public class ImageDetection extends AppCompatActivity {
             }
         });
         from_gallery.setOnClickListener(view -> {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (checkSelfPermission(Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.READ_MEDIA_IMAGES}, PICK_FROM_GALLERY);
+                }
             } else {
-                // Request read external storage permission if we don't have it.
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
+                }
             }
         });
     }
@@ -142,10 +152,13 @@ public class ImageDetection extends AppCompatActivity {
 
             System.out.println("maxPOs");
             System.out.println(maxConfidence);
-            if(maxConfidence*100 >80.0){
+            if(maxConfidence*100 >85.0){
                 result.setText(name);
+                confidence.setText(String.format(" %.1f%%",maxConfidence*100));
             }
-            confidence.setText(String.format(" %.1f%%",maxConfidence*100));
+            else {
+                result.setText("Can't Define the image");
+            }
 
             String s = "";
             for(int i = 0; i < classes.length; i++){
@@ -160,7 +173,22 @@ public class ImageDetection extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PICK_FROM_GALLERY) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, launch the gallery intent again
+                Intent galleryIntent =
+                    new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+            } else {
+                // Permission denied, show a message to the user
+                Toast.makeText(this, "Permission to access gallery is required", Toast.LENGTH_SHORT)
+                    .show();
+            }
+        }
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {

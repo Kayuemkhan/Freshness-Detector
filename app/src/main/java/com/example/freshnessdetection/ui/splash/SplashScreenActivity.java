@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import com.example.freshnessdetection.MainActivity;
 import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.databinding.ActivitySplashScreenBinding;
@@ -20,6 +21,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         com.example.freshnessdetection.databinding.ActivitySplashScreenBinding binding =
                 ActivitySplashScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
