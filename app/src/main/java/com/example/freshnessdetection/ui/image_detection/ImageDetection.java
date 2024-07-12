@@ -150,14 +150,14 @@ public class ImageDetection extends AppCompatActivity {
                 }
             }
 
-            System.out.println("maxPOs");
-            System.out.println(maxConfidence);
             if(maxConfidence*100 >85.0){
                 result.setText(name);
                 confidence.setText(String.format(" %.1f%%",maxConfidence*100));
             }
             else {
                 result.setText("Can't Define the image");
+                confidence.setText("0%");
+
             }
 
             String s = "";
