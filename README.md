@@ -2,10 +2,17 @@
 
 🗡️ This project is a **Freshness Detector** built using **TensorFlow Lite**, which classifies fruits and vegetables as either **fresh** or **stale**. The model is trained to identify six types of items in both fresh and stale states.
 
+<h1 align="center">Freshness Detector</h1>    
+
+🗡️ This project is a **Freshness Detector** built using **TensorFlow Lite**, which classifies fruits and vegetables as either **fresh** or **stale**. The model is trained to identify six types of items in both fresh and stale states.
+
 ## Screen-shoots
-![figure](figure/figure1.png)
-![figure](figure/figure2.png)
-![figure](figure/figure3.png)
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+    <img src="figure/figure1.png" alt="figure1" style="width: 30%;">
+    <img src="figure/figure2.png" alt="figure2" style="width: 30%;">
+    <img src="figure/figure3.png" alt="figure3" style="width: 30%;">
+</div>
 
 
 ## Classes
