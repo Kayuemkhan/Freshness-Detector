@@ -56,15 +56,6 @@ This project uses **TensorFlow Lite** to build a machine learning model for mobi
     git clone https://github.com/yourusername/freshness-detector.git
     ```
 
-2. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Run the app (if you have a mobile app or web interface):
-    ```bash
-    python app.py
-    ```
 
 4. Use the trained model for inference on new images of fruits and vegetables to determine if they are fresh or stale.
 
