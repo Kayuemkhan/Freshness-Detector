@@ -10,6 +10,8 @@
 
     <include
         android:id="@+id/aboutUs"
-        layout="@layout/item_about_us" />
+        layout="@layout/item_about_us"
+        android:visibility="gone"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import com.example.freshnessdetection.R;
 import com.example.freshnessdetection.databinding.FragmentSettingsBinding;
@@ -18,14 +17,11 @@ public class SettingsFragment extends Fragment {
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
-    SettingsViewModel settingsViewModel =
-        new ViewModelProvider(this).get(SettingsViewModel.class);
+
 
     binding = FragmentSettingsBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-    binding.aboutUs.getRoot().setOnClickListener(view -> NavHostFragment.findNavController(SettingsFragment.this)
-        .navigate(R.id.navigation_about));
     binding.instraction.getRoot().setOnClickListener(view -> NavHostFragment.findNavController(SettingsFragment.this)
         .navigate(R.id.navigation_instraction));
 
