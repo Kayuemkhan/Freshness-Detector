@@ -22,7 +22,10 @@
       <item name="postSplashScreenTheme">@style/Theme.App</item>
       <item name="windowSplashScreenAnimationDuration">3000</item>
     </style>
-
+  <style name="circleImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">51%</item>
+  </style>
   <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/splash_background</item>
     <item name="colorPrimary">@color/teal_200</item>
