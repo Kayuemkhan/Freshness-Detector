@@ -4,6 +4,8 @@
 
 ## Screen-shoots
 ![figure](figure/figure1.png)
+![figure](figure/figure2.png)
+![figure](figure/figure3.png)
 
 
 ## Classes
