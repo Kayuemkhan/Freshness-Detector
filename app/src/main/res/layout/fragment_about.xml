@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -10,179 +9,12 @@
 
   <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical"
-      >
-    <TextView
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+    >
+    <TextClock
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/team_information"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        />
-
-    <androidx.cardview.widget.CardView
-        app:cardMaxElevation="10dp"
-        app:cardUseCompatPadding="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        >
-      <androidx.constraintlayout.widget.ConstraintLayout
-          android:layout_width="match_parent"
-          android:layout_height="100dp"
-        >
-        <ImageView
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/profile_image1"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            android:src="@drawable/pasha_vai"
-            />
-
-
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           app:layout_constraintLeft_toRightOf="@+id/profile_image1"
-           app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintBottom_toBottomOf="parent"
-           >
-         <TextView
-             android:id="@+id/nameOne"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintBottom_toBottomOf="parent"
-             app:layout_constraintTop_toTopOf="parent"
-             android:layout_marginStart="20dp"
-             android:layout_marginTop="0dp"
-             android:layout_marginBottom="0dp"
-             android:text="Md. Nuruzzman Pasha"
-             android:textStyle="bold"
-             style="@style/TextAppearance.AppCompat.Medium"
-             />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintTop_toBottomOf="@+id/nameOne"
-             app:layout_constraintBottom_toBottomOf="parent"
-             android:layout_marginLeft="20dp"
-             android:text="@string/email_nuruzzaman15_14546_diu_edu_bd" />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintTop_toBottomOf="@+id/nameOne"
-             app:layout_constraintBottom_toBottomOf="parent"
-             android:layout_marginLeft="20dp"
-             android:text="ID: 203-15-14546"
-             />
-
-
-       </LinearLayout>
-
-      </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardUseCompatPadding="true"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="10dp"
-
-        >
-      <androidx.constraintlayout.widget.ConstraintLayout
-          android:layout_width="match_parent"
-          android:layout_height="100dp"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginVertical="50dp"
-            android:layout_marginHorizontal="10dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/profile_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/tishun_immg"
-            />
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           app:layout_constraintLeft_toRightOf="@+id/profile_image"
-           app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintBottom_toBottomOf="parent"
-           >
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintBottom_toBottomOf="parent"
-             app:layout_constraintTop_toTopOf="parent"
-             android:layout_marginLeft="20dp"
-             android:layout_marginTop="0dp"
-             android:layout_marginBottom="0dp"
-             android:text="Tishun Tahsin"
-             android:textStyle="bold"
-             style="@style/TextAppearance.AppCompat.Medium"
-             />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintTop_toBottomOf="@+id/nameOne"
-             app:layout_constraintBottom_toBottomOf="parent"
-             android:layout_marginLeft="20dp"
-             android:text="@string/email_tishun15_14569_diu_edu_bd"
-             />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:layout_constraintLeft_toRightOf="@+id/profile_image"
-             app:layout_constraintTop_toBottomOf="@+id/nameOne"
-             app:layout_constraintBottom_toBottomOf="parent"
-             android:layout_marginLeft="20dp"
-             android:text="@string/id_203_15_14569"
-             />
-
-
-       </LinearLayout>
-
-      </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Version: 1.0.0"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        />
-
+      />
   </LinearLayout>
 
 
