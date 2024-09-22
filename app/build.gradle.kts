@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-  namespace = "com.example.freshnessdetection"
+  namespace = "code.fortomorrow.freshnessdetection"
   compileSdk = 34
 
   defaultConfig {
-    applicationId = "com.example.freshnessdetection"
+    applicationId = "code.fortomorrow.freshnessdetection"
     minSdk = 24
     targetSdk = 34
     versionCode = 1
